@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+   <div class="container">
+      <div class="table-responsive">
+         <div class="table-wrapper">
+            <div class="table-title">
+               <div class="row">
+                  <div class="col-xs-6">
+                     <h2>Manage <b>Lego Products</b></h2>
+                  </div>
+
+                  <div class="col-xs-6">
+                     <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Home
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                           <a class="dropdown-item" href="/listlego">Home lego</a>
+                           <a class="dropdown-item" href="/listcar">Home car</a>
+                           <a class="dropdown-item" href="/">Home Page</a>
+                        </div>
+                     </div>
+                     <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Add
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                           <a class="dropdown-item" href="/addlego">Add lego</a>
+                           <a class="dropdown-item" href="/addcar">Add car</a>
+                        </div>
+                     </div>
+                     <a href="/drop" onclick="return confirm('Are you sure to delete all product ?');"
+                        class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i>
+                        <span>Drop</span></a>
+                  </div>
+               </div>
+            </div>
+            <table class="table table-striped table-hover">
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Brand</th>
+                     <th>Detail</th>
+                     <th>Quantity</th>
+                     <th>Image</th>
+                     <th>Price</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {{#each toyLegos }}
+                  <tr>
+                     <th>{{ name }}</th>
+                     <th>{{ brand }}</th>
+                     <th>{{ detail }}</th>
+                     <th>{{ quantity }}</th>
+                     <th>
+                        <img width="300" height="200" src="{{ image }}">
+                     </th>
+                     <th>${{ price }}</th>
+                     <td>
+                        <a href="/editlego/{{_id}}" class="edit" data-toggle="modal"><i class="material-icons"
+                              data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="/deletelego/{{_id}}" onclick="return confirm('Are you sure to delete this product ?');"
+                           class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+                              title="Delete">&#xE872;</i></a>
+                     </td>
+                  </tr>
+                  {{/each}}
+               </tbody>
+            </table>
+            <div class="clearfix">
+               <div class="hint-text">Showing ({{ total }})</div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</html>

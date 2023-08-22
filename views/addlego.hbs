@@ -1,0 +1,41 @@
+<style> .bg-pink { background-color: pink;}</style>
+<div class="bg-light text-center col-md-8">
+   <div class="modal-dialog">
+      <div class="modal-content bg-pink"> 
+         <form action="/addlego" method="post">
+            <div class="modal-header">
+               <h4 class="modal-title">Add New Toy Lego Products</h4>
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+               <div class="form-group mt-3">
+                  <label class="text text-success">Name</label>
+                  <input class="form-control" type="text" name="name" required>
+               </div>
+               <div class="form-group mt-3">
+                  <label class="text text-success">Price</label>
+                  <input class="form-control" type="text" name="price" required>
+               </div>
+               <div class="form-group mt-3">
+                  <label class="text text-success">Detail</label>
+                  <input class="form-control" type="text" name="detail" required>
+               </div>
+               <div class="form-group mt-3">
+                  <label class="text text-success">Quantity</label>
+                  <input class="form-control" type="number" name="quantity" required>
+               </div>
+               <div class="form-group mt-3">
+                  <label class="text text-success">Brand</label>
+                  <input class="form-control" type="string" name="brand" required>
+               </div>
+               <div class="form-group mt-3">
+                  <label class="text text-success">Image</label>
+                  <input class="form-control" type="text" name="image" required>
+               </div>
+            <div class="modal-footer">
+               <input type="submit" class="btn btn-success" value="Add">
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
